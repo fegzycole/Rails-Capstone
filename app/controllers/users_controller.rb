@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      log_in @user
       redirect_to home_path(@user)
     else
       render 'new'
@@ -20,6 +21,7 @@ class UsersController < ApplicationController
     user = User.find_by(username: params[:user][:username])
 
     if user
+      log_in user
       redirect_to home_path(user)
     else
       flash.now[:notice] = 'User not found'
@@ -28,7 +30,7 @@ class UsersController < ApplicationController
   end
 
   def home
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
   end
 
   private
