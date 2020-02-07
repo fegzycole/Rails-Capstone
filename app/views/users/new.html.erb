@@ -1,2 +1,35 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<%= render 'nav' %>
+<div class="form">
+  <%= form_for @user, url: new_user_path do |f| %>
+    <div class="image">
+      <%= image_tag("twitter.png",  alt: "Twitter Icon", class: "twitter-logo") %>
+    </div>
+    <div class="field">
+      <%= f.text_field :fullname, placeholder: "Full Name" %>
+      <% if @user.errors[:fullname][0]  %>
+        <p class="error">* <%= @user.errors[:fullname][0] %></p>
+      <% end %>
+    </div>
+    <div class="field">
+      <%= f.text_field :username, placeholder: "Username" %>
+      <% if @user.errors[:username][0] %>
+        <p class="error">* <%= @user.errors[:username][0] %></p>
+      <% end %>
+    </div>
+    <div class= "field">
+      <%= f.label :photo %>
+      <%= f.file_field :photo %>
+      <% if @user.errors[:photo][0] %>
+        <p class="error"><%= @user.errors[:photo][0] %></p>
+      <% end %>
+    </div>
+    <div class="field">
+      <%= f.label :cover_image %>
+      <%= f.file_field :cover_image %>
+      <% if @user.errors[:cover_image][0]%>
+        <p class="error"><%= @user.errors[:cover_image][0] %></p>
+      <% end %>
+    </div>
+    <%= f.submit "Create User" %>
+  <% end %>
+</div>

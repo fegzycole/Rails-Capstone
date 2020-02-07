@@ -1,0 +1,16 @@
+<%= render 'nav' %>
+
+<div class="form">
+  <%= form_for :user, url: signin_path do |f| %>
+    <div class="image">
+      <%= image_tag("twitter.png",  alt: "Twitter Icon", class: "twitter-logo") %>
+    </div>
+
+    <p class="error center"><%= notice %></p>
+
+    <div class="field">
+      <%= f.text_field :username, placeholder: "Username" %>
+    </div>
+    <%= f.submit "Login" %>
+  <% end %>
+</div>

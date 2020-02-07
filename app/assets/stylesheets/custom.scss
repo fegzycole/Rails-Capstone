@@ -1,0 +1,100 @@
+@font-face {
+  font-family: 'Proxima-Regular';
+  src: url('../proxima_ssv/ProximaNova-Regular.otf')format('opentype');
+}
+
+@font-face {
+  font-family: 'Proxima-Bold';
+  src: url('../proxima_ssv/Proxima\ Nova\ Bold.otf')format('opentype');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f2f2f2;
+  font-family: Proxima-Regular, sans-serif;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 30px 0 0;
+
+  ul {
+    width: 140px;
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+
+    li {
+      a {
+        text-decoration: none;
+        color: #2ca7e0;
+        font-family: Proxima-Bold, sans-serif;
+      }
+    }
+  }
+}
+
+.form {
+  width: 400px;
+  margin: 70px auto;
+  padding: 15px;
+
+  label,
+  input[type="text"],
+  input[type="file"],
+  input[type="submit"] {
+    width: 100%;
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  .field,
+  input[type="file"] {
+    margin-bottom: 15px;
+  }
+
+  input[type="text"] {
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    height: 30px;
+  }
+
+  input[type="submit"] {
+    background-color: #2ca7e0;
+    cursor: pointer;
+    padding: 10px;
+    color: #fff;
+    border: none;
+  }
+
+  .image {
+    text-align: center;
+    margin-bottom: 15px;
+
+    .twitter-logo {
+      width: 70px;
+      height: 70px;
+    }
+  }
+}
+
+.error {
+  color: #ec1c0d;
+  font-size: 12px;
+  padding-left: 7px;
+  padding-top: 5px;
+}
+
+.center {
+  text-align: center;
+  margin-bottom: 5px;
+}

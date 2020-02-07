@@ -1,6 +1,4 @@
-# frozen_string_literal: true
-
-class ImageUploader < CarrierWave::Uploader::Base # :nodoc:
+class ImageUploader < CarrierWave::Uploader::Base
   include Cloudinary::CarrierWave
 
   version :standard do
@@ -9,6 +7,10 @@ class ImageUploader < CarrierWave::Uploader::Base # :nodoc:
 
   version :thumb do
     process resize_to_fit: [50, 50]
+  end
+
+  CarrierWave.configure do |config|
+    config.cache_storage = :file
   end
 
   def extension_whitelist

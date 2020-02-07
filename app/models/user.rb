@@ -4,7 +4,7 @@ class User < ApplicationRecord
   mount_uploader :cover_image, ImageUploader
   validates :username, presence: true, length: { maximum: 15 },
                        uniqueness: { case_sensitive: false }
-  valdates :fullname, presence: true
+  validates :fullname, presence: true
 
   private
 
