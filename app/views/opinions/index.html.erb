@@ -13,13 +13,13 @@
     <div class="ff-box">
       <div class="side-following right-border">
         <div class="stats">
-          <p class="stat-no">184</p>
+          <p class="stat-no"><%= current_user.followed.count %></p>
           <p class="stat-name">Following</p>
         </div>
       </div>
       <div class="side-following">
         <div class="stats">
-          <p class="stat-no">823</p>
+          <p class="stat-no"><%= current_user.followers.count %></p>
           <p class="stat-name">Followers</p>
         </div>
       </div>

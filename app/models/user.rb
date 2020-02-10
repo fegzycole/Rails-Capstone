@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_many :opinions
+  has_many :followed, foreign_key: 'follower_id', class_name: 'Friendship'
+  has_many :followers, foreign_key: 'followed_id', class_name: 'Friendship'
   before_save :downcase_username
   mount_uploader :photo, ImageUploader
   mount_uploader :cover_image, ImageUploader
