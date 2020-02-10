@@ -20,6 +20,10 @@ class User < ApplicationRecord
     Digest::SHA1.hexdigest(token.to_s)
   end
 
+  def self.find_friends(id)
+    User.where('id != ?', id).order(created_at: :desc)
+  end
+
   private
 
   def downcase_username

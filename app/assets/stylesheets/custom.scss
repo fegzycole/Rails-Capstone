@@ -105,7 +105,8 @@ body {
 
   .sideNav {
     width: 220px;
-    height: 100vh;
+    height: inherit;
+    min-height: 100%;
     background-color: #213246;
 
     .sm-box {
@@ -213,10 +214,14 @@ body {
 
       ul {
         display: flex;
-        width: 190px;
+        width: 270px;
         color: #376e97;
         list-style-type: none;
         justify-content: space-between;
+
+        li {
+          cursor: pointer;
+        }
       }
     }
 
@@ -225,22 +230,31 @@ body {
 
       .big-section {
         width: 70%;
+        border-right: 2px solid #eaebed;
 
-        .tab {
-          border-bottom: 3px solid #4f9ddb;
-          width: 100px;
-          .tab-p {
-            padding: 20px;
+        .b-bottom {
+          border-bottom: 2px solid #eaebed;
 
-            p {
-              font-size: 14px;
-              color: #949ba3;
+          .tab {
+            border-bottom: 3px solid #4f9ddb;
+            width: 100px;
+            .tab-p {
+              padding: 20px;
+  
+              p {
+                font-size: 14px;
+                color: #949ba3;
+              }
             }
           }
         }
 
         .tweets {
           padding: 20px;
+
+          .error {
+            color: red !important;
+          }
 
           .new-tweet {
             width: 100%;
@@ -250,7 +264,7 @@ body {
 
             p {
               font-size: 12px;
-              color: #d2d2d2;
+              color: #878f98;
               text-align: left;
             }
 
@@ -283,14 +297,92 @@ body {
                 border: none;
                 margin-top: 10px;
                 border-radius: 4px;
+                cursor: pointer;
+              }
+            }
+          }
+
+          .my-related-tweets {
+            margin-top: 50px;
+            background-color: #fff;
+            padding: 20px;
+
+            .opinion {
+              display: flex;
+
+              img {
+                width: 40px;
+                height: 40px;
+              }
+
+              &:not(:last-child) {
+                margin-bottom: 20px;
+              }
+
+              .opinion-user {
+                align-self: center;
+                width: calc(100% - 40px);
+                margin-left: 10px;
+
+                h4 {
+                  color: #878f98;
+                  font-size: 13px;
+                }
+
+                p {
+                  color: #dfdfdf;
+                  margin-top: 4px;
+                  font-size: 13px;
+                }
               }
             }
           }
         }
       }
 
-      .sidebar {
+      .side-bar {
         width: 30%;
+        padding: 20px 30px 20px 10px;
+
+        .followers-hero {
+          display: flex;
+          justify-content: space-between;
+          color: #878f98;
+          padding: 0 10px 16px 0;
+          border-bottom: 2px solid #eaebed;
+
+          .followers-hero-p {
+            font-size: 14px;
+            font-weight: 500;
+            align-self: center;
+          }
+        }
+
+        .find-friends {
+          height: 500px;
+          overflow-y: scroll;
+
+          .user {
+            display: flex;
+            margin-top: 20px;
+
+            img {
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+            }
+
+            h6 {
+              align-self: flex-start;
+              margin-left: 10px;
+              margin-top: 5px;
+              color: #213550;
+              font-size: 13px;
+              font-weight: 700;
+            }
+          }
+        }
+
       }
     }
   }
