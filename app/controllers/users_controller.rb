@@ -16,6 +16,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(params[:id])
+    @opinions = Opinion.get_users_posts(params[:id])
+    @followers = User.user_followers(params[:id], current_user.id)
+  end
+
   def signin
   end
 
@@ -31,8 +37,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def home
-    @user = User.find(current_user.id)
+  def destroy
+    sign_out if logged_in?
+    redirect_to sign_in_path
   end
 
   private

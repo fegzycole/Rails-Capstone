@@ -1,0 +1,99 @@
+<div class="container">
+  <%= render 'opinions/side_nav' %>
+  <main class="main-section">
+    <%= render 'opinions/header_nav' %>
+    <div class="wrapper">
+      <section class="big-section">
+        <% unless @user[:cover_image].nil? %>
+          <div class="cover-img" 
+            style="background-image: url('<%= @user.cover_image.standard.url %>'); 
+            background-color: inherit;">
+          </div>
+        <% else %>
+          <div class="cover-img">
+          </div>
+        <% end %>
+        <div class="b-bottom">
+          <div class="tab">
+            <div class="tab-p">
+              <p>TWEETS</p>
+            </div>
+          </div>
+        </div>
+        <div class="tweets">
+          <% if @opinions.any? %>
+            <div class="my-related-tweets">
+              <% @opinions.each do |opinion| %>
+                <div class="opinion">
+                  <%= image_tag opinion.user.photo.thumb.url %>
+                  <div class="opinion-user">
+                    <h4><%= opinion.user.fullname %></h4>
+                    <p><%= opinion.content %></p>
+                  </div>
+                </div>
+              <% end  %>
+            </div>
+          <% end %>
+        </div>
+      </section>
+      <aside class="side-bar">
+        <div class="user-container">
+          <div class="user-detailed-info" style="<%= "width: 30%;" if current_user.id == @user.id %>">
+            <% unless current_user.id == @user.id %>
+              <i class="material-icons">add_circle_outline</i>
+            <% end %>
+            <% unless @user[:photo].nil? %>
+              <%= image_tag @user.photo.standard.url %>
+            <% else %>
+              <%= gravatar_for user, size: 100 %>
+            <% end %>
+            <% unless current_user.id == @user.id %>
+              <i class="material-icons">list</i>
+            <% end %>
+          </div>
+        </div>
+        <div class="user-detailed-stats">
+          <h5><%= @user.fullname.upcase %></h5>
+          <p>@<%= @user.username %></p>
+        </div>
+        <div class="ff-box">
+          <div class="side-following right-border">
+            <div class="stats">
+              <p class="stat-no"><%= @user.opinions.count %></p>
+              <p class="stat-name">Tweets</p>
+            </div>
+          </div>
+          <div class="side-following right-border">
+            <div class="stats">
+              <p class="stat-no"><%= @user.followed.count %></p>
+              <p class="stat-name">Following</p>
+            </div>
+          </div>
+          <div class="side-following">
+            <div class="stats">
+              <p class="stat-no"><%= @user.followers.count %></p>
+              <p class="stat-name">Followers</p>
+            </div>
+          </div>
+        </div>
+        <% if @followers.any? %>
+          <div class="followers-hero">
+            <p class="followers-hero-p">FOLLOWED BY</p>
+          </div>
+          <div class="find-friends">
+            <% @followers.each do |user| %>
+              <div class="user">
+                <% unless user[:photo].nil? %>
+                  <%= image_tag user.photo.thumb.url %>
+                <% else %>
+                  <%= gravatar_for user, size: 50 %>
+                <% end %>
+                <h6><%= user.fullname %></h6>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </aside>
+    </div>
+  </main>
+</div>

@@ -15,4 +15,9 @@ module UsersHelper
     gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
     image_tag(gravatar_url, alt: user.fullname, class: 'gravatar')
   end
+
+  def sign_out
+    cookies.delete(:remember_token)
+    self.current_user = nil
+  end
 end

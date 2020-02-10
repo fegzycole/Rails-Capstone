@@ -1,50 +1,7 @@
 <div class="container">
-  <div class="sideNav">
-    <div class="sm-box">
-      <div class="hero-section">
-        <% if current_user[:photo].nil? %>
-          <%= gravatar_for current_user, size: 50 %>
-        <% else %>
-          <%= image_tag current_user.photo.thumb.url %>
-        <% end %>
-        <p class="p-text"><%= current_user.fullname.upcase %></p>
-      </div>
-    </div>
-    <div class="ff-box">
-      <div class="side-following right-border">
-        <div class="stats">
-          <p class="stat-no"><%= current_user.followed.count %></p>
-          <p class="stat-name">Following</p>
-        </div>
-      </div>
-      <div class="side-following">
-        <div class="stats">
-          <p class="stat-no"><%= current_user.followers.count %></p>
-          <p class="stat-name">Followers</p>
-        </div>
-      </div>
-    </div>
-    <div class="links">
-      <div class="home-link">
-        <i class="material-icons">home</i>
-        <%= link_to 'HOME', root_path %>
-      </div>
-      <div class="home-link">
-        <i class="material-icons">person</i>
-        <%= link_to 'PROFILE', root_path %>
-      </div>
-    </div>
-  </div>
-  <div class="main-section">
-    <nav class="topnav">
-      <%= image_tag 'twitter-512.png' %>
-      <ul>
-        <li><i class="material-icons">edit</i></li>
-        <li><i class="material-icons">email</i></li>
-        <li><i class="material-icons">search</i></li>
-        <li><i class="material-icons">settings</i></li>
-      </ul>
-    </nav>
+  <%= render 'side_nav' %>
+  <main class="main-section">
+    <%= render 'header_nav' %>
     <div class="wrapper">
       <section class="big-section">
         <div class="b-bottom">
@@ -101,5 +58,5 @@
         </div>
       </aside>
     </div>
-  </div>
+  </main>
 </div>

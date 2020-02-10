@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'Proxima-Regular';
-  src: url('../proxima_ssv/ProximaNova-Regular.otf')format('opentype');
+  src: url('/assets/ProximaNova-Regular.otf') format('opentype');
 }
 
 @font-face {
   font-family: 'Proxima-Bold';
-  src: url('../proxima_ssv/Proxima\ Nova\ Bold.otf')format('opentype');
+  src: url('/assets/Proxima\ Nova\ Bold.otf') format('opentype');
 }
 
 * {
@@ -46,9 +46,9 @@ body {
   padding: 15px;
 
   label,
-  input[type="text"],
-  input[type="file"],
-  input[type="submit"] {
+  input[type='text'],
+  input[type='file'],
+  input[type='submit'] {
     width: 100%;
   }
 
@@ -57,18 +57,18 @@ body {
   }
 
   .field,
-  input[type="file"] {
+  input[type='file'] {
     margin-bottom: 15px;
   }
 
-  input[type="text"] {
+  input[type='text'] {
     border: none;
     padding: 10px;
     border-radius: 4px;
     height: 30px;
   }
 
-  input[type="submit"] {
+  input[type='submit'] {
     background-color: #2ca7e0;
     cursor: pointer;
     padding: 10px;
@@ -105,8 +105,8 @@ body {
 
   .sideNav {
     width: 220px;
+    min-height: 100vh;
     height: inherit;
-    min-height: 100%;
     background-color: #213246;
 
     .sm-box {
@@ -172,7 +172,7 @@ body {
         padding: 15px;
         font-size: 12px;
         cursor: pointer;
-        
+
         i {
           width: 20px;
           height: 20px;
@@ -200,6 +200,7 @@ body {
 
   .main-section {
     width: calc(100% - 220px);
+
     .topnav {
       background-color: #52a6e7;
       width: 100%;
@@ -232,6 +233,17 @@ body {
         width: 70%;
         border-right: 2px solid #eaebed;
 
+        .cover-img {
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: center;
+          background-clip: initial;
+          width: 100%;
+          height: 200px;
+          background-color: #213246;
+          border-bottom: 2px solid #eaebed;
+        }
+
         .b-bottom {
           border-bottom: 2px solid #eaebed;
 
@@ -240,7 +252,7 @@ body {
             width: 100px;
             .tab-p {
               padding: 20px;
-  
+
               p {
                 font-size: 14px;
                 color: #949ba3;
@@ -290,7 +302,7 @@ body {
                 }
               }
 
-              input[type="submit"] {
+              input[type='submit'] {
                 background-color: #2ca7e0;
                 color: white;
                 padding: 5px 8px;
@@ -342,13 +354,78 @@ body {
 
       .side-bar {
         width: 30%;
-        padding: 20px 30px 20px 10px;
+        padding: 20px 0;
+
+        .user-container {
+          width: 100%;
+
+          .user-detailed-info {
+            display: flex;
+            justify-content: space-between;
+            width: 70%;
+            margin: 0 auto;
+  
+            .material-icons {
+              align-self: center;
+              color: #485e70;
+              font-size: 30px;
+            }
+  
+            img {
+              width: 100px;
+              height: 100px;
+              border-radius: 50%;
+              justify-self: center;
+            }
+          }
+        }
+
+        .user-detailed-stats {
+          margin-top: 10px;
+          padding-bottom: 31px;
+          color: #485e70;
+          text-align: center;
+        }
+
+        .ff-box {
+          width: 100%;
+          display: flex;
+          margin-bottom: 20px;
+          border-bottom: 2px solid #eaebed;
+          border-top: 2px solid #eaebed;
+
+          .side-following {
+            width: 50%;
+
+            .stats {
+              text-align: center;
+              padding: 10px 0 14px 0;
+
+              .stat-no {
+                color: #94a2af;
+                font-family: Proxima-Bold, sans-serif;
+                font-weight: 700;
+              }
+
+              .stat-name {
+                color: #3b4e5f;
+                font-size: 12px;
+                font-weight: 700;
+                margin-top: 4px;
+              }
+            }
+          }
+
+          .right-border {
+            border-right: 2px solid #eaebed;
+          }
+        }
 
         .followers-hero {
           display: flex;
           justify-content: space-between;
           color: #878f98;
-          padding: 0 10px 16px 0;
+          padding: 0 30px 16px 20px;
           border-bottom: 2px solid #eaebed;
 
           .followers-hero-p {
@@ -361,6 +438,7 @@ body {
         .find-friends {
           height: 500px;
           overflow-y: scroll;
+          padding-left: 20px;
 
           .user {
             display: flex;
@@ -376,13 +454,12 @@ body {
               align-self: flex-start;
               margin-left: 10px;
               margin-top: 5px;
-              color: #878f98;;
+              color: #878f98;
               font-size: 13px;
               font-weight: 700;
             }
           }
         }
-
       }
     }
   }

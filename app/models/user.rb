@@ -26,6 +26,10 @@ class User < ApplicationRecord
     User.where('id != ?', id).order(created_at: :desc)
   end
 
+  def self.user_followers(id, curr_user_id)
+    Friendship.where('followed_id = ? AND follower_id != ?', id, curr_user_id).order(created_at: :desc).limit(5)
+  end
+
   private
 
   def downcase_username
