@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :opinions
-  has_many :followed, foreign_key: 'follower_id', class_name: 'Friendship'
-  has_many :followers, foreign_key: 'followed_id', class_name: 'Friendship'
+  has_many :followed, foreign_key: 'sender_id', class_name: 'Friendship'
+  has_many :followers, foreign_key: 'receiver_id', class_name: 'Friendship'
   before_save :downcase_username
   mount_uploader :photo, ImageUploader
   mount_uploader :cover_image, ImageUploader
@@ -23,11 +23,17 @@ class User < ApplicationRecord
   end
 
   def self.find_friends(id)
-    User.where('id != ?', id).order(created_at: :desc)
+    arr = [id]
+    followed = Friendship.where('sender_id = ?', id).order(created_at: :desc)
+    
+    if followed.any?
+      followed.each { |follow| arr.push(follow.receiver_id) }
+    end
+    User.where.not(id: arr).order(created_at: :desc).limit(5)
   end
 
   def self.user_followers(id, curr_user_id)
-    Friendship.where('followed_id = ? AND follower_id != ?', id, curr_user_id).order(created_at: :desc).limit(5)
+    Friendship.where('receiver_id = ? AND sender_id != ?', id, curr_user_id).order(created_at: :desc).limit(5)
   end
 
   private

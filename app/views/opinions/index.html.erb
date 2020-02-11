@@ -22,7 +22,6 @@
               <%= f.submit "Tweet" %>
             <% end %>
           </div>
-
           <% if @opinions.any? %>
             <div class="my-related-tweets">
               <% @opinions.each do |opinion| %>
@@ -43,17 +42,16 @@
           <p class="followers-hero-p">WHO TO FOLLOW</p>
           <i class="material-icons">sync</i>
         </div>
-
         <div class="find-friends">
           <% @users.each do |user| %>
-            <div class="user">
+            <%= link_to user_path(user), class: 'user' do %>
               <% unless user[:photo].nil? %>
                 <%= image_tag user.photo.thumb.url %>
               <% else %>
                 <%= gravatar_for user, size: 50 %>
               <% end %>
               <h6><%= user.fullname %></h6>
-            </div>
+            <% end %>
           <% end %>
         </div>
       </aside>

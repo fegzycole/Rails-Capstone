@@ -2,7 +2,7 @@ class OpinionsController < ApplicationController
   def index
     @user = User.find(current_user.id)
     @opinion = Opinion.new
-    @opinions = Opinion.get_users_posts(current_user.id)
+    @opinions = Opinion.get_related_opinions(current_user.id)
     @users = User.find_friends(current_user.id)
   end
 
@@ -10,7 +10,7 @@ class OpinionsController < ApplicationController
     @opinion = Opinion.new(opinion_params)
     @opinion.user_id = current_user.id
     @users = User.find_friends(current_user.id)
-    @opinions = Opinion.get_users_posts(current_user.id)
+    @opinions = Opinion.get_related_opinions(current_user.id)
 
     if @opinion.save
       redirect_to root_path

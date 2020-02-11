@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   post '/signin', to: 'users#login', as: :signin
   post '/create_opinion', to: 'opinions#create', as: :new_opinion
   get '/follow/:followed_id', to: 'friendships#create', as: :follow
+  delete '/:followed_id', to: 'friendships#destroy', as: :unfollow
 end

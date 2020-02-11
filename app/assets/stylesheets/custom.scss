@@ -101,10 +101,10 @@ body {
 
 .container {
   width: 100%;
-  display: flex;
 
   .sideNav {
     width: 220px;
+    position: fixed;
     min-height: 100vh;
     height: inherit;
     background-color: #213246;
@@ -200,6 +200,7 @@ body {
 
   .main-section {
     width: calc(100% - 220px);
+    margin-left: 220px;
 
     .topnav {
       background-color: #52a6e7;
@@ -337,12 +338,12 @@ body {
                 margin-left: 10px;
 
                 h4 {
-                  color: #878f98;
+                  color: #3b4e5f;
                   font-size: 13px;
                 }
 
                 p {
-                  color: #dfdfdf;
+                  color: #878f98;
                   margin-top: 4px;
                   font-size: 13px;
                 }
@@ -442,7 +443,9 @@ body {
 
           .user {
             display: flex;
+            position: relative;
             margin-top: 20px;
+            width: 100%;
 
             img {
               width: 40px;
@@ -457,10 +460,22 @@ body {
               color: #878f98;
               font-size: 13px;
               font-weight: 700;
+              text-decoration: none;
+            }
+
+            a {
+              position: absolute;
+              align-self: center;
+              right: 30px;
+              color: #878f98;
             }
           }
         }
       }
     }
   }
+}
+
+a.user {
+  text-decoration: none;
 }
