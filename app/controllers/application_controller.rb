@@ -12,4 +12,8 @@ class ApplicationController < ActionController::Base
     cookies.delete(:remember_token)
     self.current_user = nil
   end
+
+  def authorize
+    redirect_to sign_in_path unless logged_in?
+  end
 end

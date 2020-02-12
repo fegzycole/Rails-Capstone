@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authorize, only: [:show]
+
   def new
     @user = User.new
   end
@@ -7,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      @user.reload 
+      @user.reload
 
       log_in @user
       redirect_to root_path

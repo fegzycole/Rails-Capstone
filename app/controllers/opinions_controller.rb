@@ -1,4 +1,6 @@
 class OpinionsController < ApplicationController
+  before_action :authorize, only: [:index]
+
   def index
     @user = User.find(current_user.id)
     @opinion = Opinion.new
