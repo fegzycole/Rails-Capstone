@@ -5,7 +5,7 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
-    @friendship = Friendship.where('sender_id = ? AND receiver_id = ?', current_user.id, params[:followed_id])[0]
+    @friendship = Friendship.find_friend_to_unfollow(current_user.id, params[:followed_id])
     @friendship.destroy
     redirect_to user_path(params[:followed_id])
   end
