@@ -26,7 +26,11 @@
             <div class="my-related-tweets">
               <% @opinions.each do |opinion| %>
                 <div class="opinion">
-                  <%= image_tag opinion.user.photo.thumb.url %>
+                  <% if opinion.user[:photo].nil? %>
+                    <%= gravatar_for opinion.user, size: 50 %>
+                  <% else %>
+                    <%= image_tag opinion.user.photo.thumb.url %>
+                  <% end %>
                   <div class="opinion-user">
                     <h4><%= opinion.user.fullname %></h4>
                     <p><%= opinion.content %></p>

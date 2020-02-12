@@ -13,7 +13,7 @@ class Opinion < ApplicationRecord
     if followed.any?
       followed.each { |follow| arr.push(follow.receiver_id) }
     end
-    puts arr
+
     Opinion.where(user_id: arr).order(created_at: :desc)
   end
 end

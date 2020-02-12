@@ -25,7 +25,11 @@
             <div class="my-related-tweets">
               <% @opinions.each do |opinion| %>
                 <div class="opinion">
-                  <%= image_tag opinion.user.photo.thumb.url %>
+                  <% if opinion.user[:photo].nil? %>
+                    <%= gravatar_for opinion.user, size: 50 %>
+                  <% else %>
+                    <%= image_tag opinion.user.photo.thumb.url %>
+                  <% end %>
                   <div class="opinion-user">
                     <h4><%= opinion.user.fullname %></h4>
                     <p><%= opinion.content %></p>
@@ -53,7 +57,7 @@
             <% unless @user[:photo].nil? %>
               <%= image_tag @user.photo.standard.url %>
             <% else %>
-              <%= gravatar_for user, size: 100 %>
+              <%= gravatar_for @user, size: 100 %>
             <% end %>
             <% unless current_user.id == @user.id %>
               <i class="material-icons">list</i>
