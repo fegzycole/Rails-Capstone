@@ -2,7 +2,7 @@
 <div class="sideNav">
   <div class="sm-box">
     <div class="hero-section">
-      <% if current_user[:photo].nil? %>
+      <% if current_user[:Photo].nil? %>
         <%= gravatar_for current_user, size: 50 %>
       <% else %>
         <%= image_tag current_user.Photo.thumb.url %>

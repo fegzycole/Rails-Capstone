@@ -28,7 +28,7 @@
                   <% if opinion.Author[:Photo].nil? %>
                     <%= gravatar_for opinion.Author, size: 50 %>
                   <% else %>
-                    <%= image_tag opinion.Author.photo.thumb.url %>
+                    <%= image_tag opinion.Author.Photo.thumb.url %>
                   <% end %>
                   <div class="opinion-user">
                     <h4><%= opinion.Author.Fullname %></h4>
