@@ -5,9 +5,9 @@
       <% if current_user[:photo].nil? %>
         <%= gravatar_for current_user, size: 50 %>
       <% else %>
-        <%= image_tag current_user.photo.thumb.url %>
+        <%= image_tag current_user.Photo.thumb.url %>
       <% end %>
-      <p class="p-text"><%= current_user.fullname.upcase %></p>
+      <p class="p-text"><%= current_user.Fullname.upcase %></p>
     </div>
   </div>
   <div class="ff-box">

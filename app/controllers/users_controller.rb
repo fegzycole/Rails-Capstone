@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   end
 
   def login
-    user = User.find_by(username: params[:user][:username])
+    user = User.find_by(Username: params[:user][:Username])
 
     if user
       log_in user
@@ -47,6 +47,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :fullname, :photo, :cover_image)
+    params.require(:user).permit(:Username, :Fullname, :Photo, :CoverImage)
   end
 end

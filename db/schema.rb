@@ -16,28 +16,30 @@ ActiveRecord::Schema.define(version: 2020_02_10_172007) do
   enable_extension "plpgsql"
 
   create_table "friendships", force: :cascade do |t|
-    t.integer "sender_id"
-    t.integer "receiver_id"
+    t.integer "Followerid"
+    t.integer "Followedid"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "opinions", force: :cascade do |t|
-    t.integer "user_id"
-    t.text "content"
+    t.integer "AuthorId"
+    t.text "Text"
+    t.datetime "CreatedAt"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "fullname"
+    t.string "Username"
+    t.string "Fullname"
+    t.datetime "CreatedAt"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "photo"
-    t.string "cover_image"
+    t.string "Photo"
+    t.string "CoverImage"
     t.string "remember_token"
-    t.index ["username"], name: "index_users_on_username", unique: true
+    t.index ["Username"], name: "index_users_on_Username", unique: true
   end
 
 end

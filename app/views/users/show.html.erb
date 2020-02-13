@@ -4,9 +4,9 @@
     <%= render 'opinions/header_nav' %>
     <div class="wrapper">
       <section class="big-section">
-        <% unless @user[:cover_image].nil? %>
+        <% unless @user[:CoverImage].nil? %>
           <div class="cover-img" 
-            style="background-image: url('<%= @user.cover_image.standard.url %>'); 
+            style="background-image: url('<%= @user.CoverImage.standard.url %>'); 
             background-color: inherit;">
           </div>
         <% else %>
@@ -25,14 +25,14 @@
             <div class="my-related-tweets">
               <% @opinions.each do |opinion| %>
                 <div class="opinion">
-                  <% if opinion.user[:photo].nil? %>
-                    <%= gravatar_for opinion.user, size: 50 %>
+                  <% if opinion.Author[:Photo].nil? %>
+                    <%= gravatar_for opinion.Author, size: 50 %>
                   <% else %>
-                    <%= image_tag opinion.user.photo.thumb.url %>
+                    <%= image_tag opinion.Author.photo.thumb.url %>
                   <% end %>
                   <div class="opinion-user">
-                    <h4><%= opinion.user.fullname %></h4>
-                    <p><%= opinion.content %></p>
+                    <h4><%= opinion.Author.Fullname %></h4>
+                    <p><%= opinion.Text %></p>
                   </div>
                 </div>
               <% end  %>
@@ -44,7 +44,7 @@
         <div class="user-container">
           <div class="user-detailed-info" style="<%= "width: 30%;" if current_user.id == @user.id %>">
             <% unless current_user.id == @user.id %>
-              <% if current_user.followed.any? { |person| person.receiver_id == @user.id }%>
+              <% if current_user.followed.any? { |person| person.Followedid == @user.id }%>
                 <%= link_to unfollow_path(@user), method: :delete, class: "material-icons" do %>
                   <i class="material-icons">remove_circle_outline</i>
                 <% end %>
@@ -54,8 +54,8 @@
                 <% end %>
               <% end %>
             <% end %>
-            <% unless @user[:photo].nil? %>
-              <%= image_tag @user.photo.standard.url %>
+            <% unless @user[:Photo].nil? %>
+              <%= image_tag @user.Photo.standard.url %>
             <% else %>
               <%= gravatar_for @user, size: 100 %>
             <% end %>
@@ -65,8 +65,8 @@
           </div>
         </div>
         <div class="user-detailed-stats">
-          <h5><%= @user.fullname.upcase %></h5>
-          <p>@<%= @user.username %></p>
+          <h5><%= @user.Fullname.upcase %></h5>
+          <p>@<%= @user.Username %></p>
         </div>
         <div class="ff-box">
           <div class="side-following right-border">
@@ -95,18 +95,18 @@
           <div class="find-friends">
             <% @followers.each do |follower| %>
               <div class="user">
-                <% unless follower.sender[:photo].nil? %>
-                  <%= image_tag follower.sender.photo.thumb.url %>
+                <% unless follower.Follower[:Photo].nil? %>
+                  <%= image_tag follower.Follower.Photo.thumb.url %>
                 <% else %>
-                  <%= gravatar_for follower.sender, size: 50 %>
+                  <%= gravatar_for follower.Follower, size: 50 %>
                 <% end %>
-                <h6><%= follower.sender.fullname %></h6>
-                <% if current_user.followed.any? { |person| person.receiver_id == follower.sender.id }%>
-                  <%= link_to unfollow_path(follower.sender), method: :delete, class: "material-icons" do %>
+                <h6><%= follower.Follower.Fullname %></h6>
+                <% if current_user.followed.any? { |person| person.Followedid == follower.Follower.id }%>
+                  <%= link_to unfollow_path(follower.Follower), method: :delete, class: "material-icons" do %>
                     <i class="material-icons">remove_circle_outline</i>
                   <% end %>
                 <%else%>
-                  <%= link_to follow_path(follower.sender), class: "material-icons" do %>
+                  <%= link_to follow_path(follower.Follower), class: "material-icons" do %>
                     <i class="material-icons">add_circle_outline</i>
                   <% end %>
                 <% end %>

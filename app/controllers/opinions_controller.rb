@@ -10,7 +10,7 @@ class OpinionsController < ApplicationController
 
   def create
     @opinion = Opinion.new(opinion_params)
-    @opinion.user_id = current_user.id
+    @opinion.AuthorId = current_user.id
     @users = User.find_friends(current_user.id)
     @opinions = Opinion.get_related_opinions(current_user.id)
 
@@ -24,6 +24,6 @@ class OpinionsController < ApplicationController
   private
 
   def opinion_params
-    params.require(:opinion).permit(:content)
+    params.require(:opinion).permit(:Text)
   end
 end

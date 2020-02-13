@@ -5,29 +5,29 @@
       <%= image_tag("twitter.png",  alt: "Twitter Icon", class: "twitter-logo") %>
     </div>
     <div class="field">
-      <%= f.text_field :fullname, placeholder: "Full Name" %>
-      <% if @user.errors[:fullname][0]  %>
-        <p class="error">* <%= @user.errors[:fullname][0] %></p>
+      <%= f.text_field :Fullname, placeholder: "Full Name" %>
+      <% if @user.errors[:Fullname][0]  %>
+        <p class="error">* <%= @user.errors[:Fullname][0] %></p>
       <% end %>
     </div>
     <div class="field">
-      <%= f.text_field :username, placeholder: "Username" %>
-      <% if @user.errors[:username][0] %>
-        <p class="error">* <%= @user.errors[:username][0] %></p>
+      <%= f.text_field :Username, placeholder: "Username" %>
+      <% if @user.errors[:Username][0] %>
+        <p class="error">* <%= @user.errors[:Username][0] %></p>
       <% end %>
     </div>
     <div class= "field">
-      <%= f.label :photo %>
-      <%= f.file_field :photo %>
-      <% if @user.errors[:photo][0] %>
-        <p class="error"><%= @user.errors[:photo][0] %></p>
+      <%= f.label :Photo %>
+      <%= f.file_field :Photo %>
+      <% if @user.errors[:Photo][0] %>
+        <p class="error"><%= @user.errors[:Photo][0] %></p>
       <% end %>
     </div>
     <div class="field">
-      <%= f.label :cover_image %>
-      <%= f.file_field :cover_image %>
-      <% if @user.errors[:cover_image][0]%>
-        <p class="error"><%= @user.errors[:cover_image][0] %></p>
+      <%= f.label :CoverImage %>
+      <%= f.file_field :CoverImage %>
+      <% if @user.errors[:CoverImage][0]%>
+        <p class="error"><%= @user.errors[:CoverImage][0] %></p>
       <% end %>
     </div>
     <%= f.submit "Create User" %>
