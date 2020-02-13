@@ -24,8 +24,7 @@ class UsersController < ApplicationController
     @followers = User.user_followers(params[:id], current_user.id)
   end
 
-  def signin
-  end
+  def signin; end
 
   def login
     user = User.find_by(Username: params[:user][:Username])

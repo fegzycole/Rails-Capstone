@@ -25,10 +25,8 @@ class User < ApplicationRecord
   def self.find_friends(id)
     arr = [id]
     followed = Friendship.where(Followerid: id).order(created_at: :desc)
-    
-    if followed.any?
-      followed.each { |follow| arr.push(follow.Followedid) }
-    end
+
+    followed.each { |follow| arr.push(follow.Followedid) } if followed.any?
     User.where.not(id: arr).order(created_at: :desc).limit(5)
   end
 

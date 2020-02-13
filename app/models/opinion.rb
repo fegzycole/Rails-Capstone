@@ -9,10 +9,8 @@ class Opinion < ApplicationRecord
   def self.get_related_opinions(id)
     arr = [id]
     followed = Friendship.where(Followerid: id)
-    
-    if followed.any?
-      followed.each { |follow| arr.push(follow.Followedid) }
-    end
+
+    followed.each { |follow| arr.push(follow.Followedid) } if followed.any?
 
     Opinion.where(AuthorId: arr).order(created_at: :desc)
   end

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 Rails.application.routes.draw do
   get '/', to: 'opinions#index', as: :root
   get '/user/:id', to: 'users#show', as: :user
