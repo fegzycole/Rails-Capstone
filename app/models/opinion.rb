@@ -5,7 +5,7 @@ class Opinion < ApplicationRecord
 
   def self.get_user_retweets(id)
     retweets_arr = []
-    retweets = Retweet.where(UserId: id).each do |retweet|
+    Retweet.where(UserId: id).each do |retweet|
       retweets_arr.push(retweet.OpinionId)
     end
     retweets_arr
