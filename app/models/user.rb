@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :opinions, foreign_key: 'AuthorId', class_name: 'Opinion'
   has_many :followed, foreign_key: 'Followerid', class_name: 'Friendship'
   has_many :followers, foreign_key: 'Followedid', class_name: 'Friendship'
+  has_many :retweets, foreign_key: 'UserId', class_name: 'Retweet'
   before_save :downcase_username
   mount_uploader :Photo, ImageUploader
   mount_uploader :CoverImage, ImageUploader

@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   post '/create_opinion', to: 'opinions#create', as: :new_opinion
   get '/follow/:followed_id', to: 'friendships#create', as: :follow
   delete '/:followed_id', to: 'friendships#destroy', as: :unfollow
+  get '/retweet/:opinion_id', to: 'retweets#create', as: :retweet
+  delete '/unretweet/:opinion_id', to: 'retweets#destroy', as: :unretweet
 end
