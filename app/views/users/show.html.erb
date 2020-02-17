@@ -35,6 +35,20 @@
                     <p><%= opinion.Text %></p>
                   </div>
                 </div>
+                <div class="retweet-section">
+                  <% if opinion.retweets.any? { |retweet| retweet.UserId == current_user.id }%>
+                    <%= link_to unretweet_path(opinion), method: :delete, class: 'user' do %>
+                      <i class="material-icons blue">autorenew</i>
+                    <% end %>
+                  <% else %>
+                    <%= link_to retweet_path(opinion), class: 'user' do %>
+                      <i class="material-icons grey">autorenew</i>
+                    <% end %>
+                  <% end %>
+                  <% if opinion.retweets.any? %>
+                    <p><%= "#{pluralize(opinion.retweets.count, 'retweet')}" %></p>
+                  <% end %>
+                </div>
               <% end  %>
             </div>
           <% end %>
@@ -71,7 +85,7 @@
         <div class="ff-box">
           <div class="side-following right-border">
             <div class="stats">
-              <p class="stat-no"><%= @user.opinions.count %></p>
+              <p class="stat-no"><%= @opinions.count %></p>
               <p class="stat-name">Tweets</p>
             </div>
           </div>

@@ -2,7 +2,6 @@ class OpinionsController < ApplicationController
   before_action :authorize, only: [:index]
 
   def index
-    @user = User.find(current_user.id)
     @opinion = Opinion.new
     @opinions = Opinion.get_related_opinions(current_user.id)
     @users = User.find_friends(current_user.id)

@@ -6,6 +6,7 @@ RSpec.describe Opinion, type: :model do
     it { should validate_presence_of(:Text) }
     it { should_not allow_value(opinion).for(:Text) }
 
-    it { should belong_to(:Author) }
+    it { should belong_to(:Author).with_foreign_key(:AuthorId).class_name('User') }
+    it { should have_many(:retweets).with_foreign_key(:OpinionId).class_name('Retweet') }
   end
 end
