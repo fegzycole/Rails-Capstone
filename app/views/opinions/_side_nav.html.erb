@@ -1,0 +1,41 @@
+  
+<div class="sideNav">
+  <div class="sm-box">
+    <div class="hero-section">
+      <% if current_user[:Photo].nil? %>
+        <%= gravatar_for current_user, size: 50 %>
+      <% else %>
+        <%= image_tag current_user.Photo.thumb.url %>
+      <% end %>
+      <p class="p-text"><%= current_user.Fullname.upcase %></p>
+    </div>
+  </div>
+  <div class="ff-box">
+    <div class="side-following right-border">
+      <div class="stats">
+        <p class="stat-no"><%= current_user.followed.count %></p>
+        <p class="stat-name">Following</p>
+      </div>
+    </div>
+    <div class="side-following">
+      <div class="stats">
+        <p class="stat-no"><%= current_user.followers.count %></p>
+        <p class="stat-name">Followers</p>
+      </div>
+    </div>
+  </div>
+  <div class="links">
+    <div class="home-link">
+      <i class="material-icons">home</i>
+      <%= link_to 'HOME', root_path %>
+    </div>
+    <div class="home-link">
+      <i class="material-icons">person</i>
+      <%= link_to 'PROFILE', user_path(current_user.id) %>
+    </div>
+    <div class="home-link">
+      <i class="material-icons">power_settings_new</i>
+      <%= link_to 'LOGOUT', logout_path, method: :delete %>
+    </div>
+  </div>
+</div>

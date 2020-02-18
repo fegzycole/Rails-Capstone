@@ -1,0 +1,78 @@
+<div class="container">
+  <%= render 'side_nav' %>
+  <main class="main-section">
+    <%= render 'header_nav' %>
+    <div class="wrapper">
+      <section class="big-section">
+        <div class="b-bottom">
+          <div class="tab">
+            <div class="tab-p">
+              <p>TWEETS</p>
+            </div>
+          </div>
+        </div>
+        <div class="tweets">
+          <div class="new-tweet">
+            <p>TWEET SOMETHING</p>
+            <%= form_for @opinion, url: new_opinion_path  do |f| %>
+              <%= f.text_area :Text, placeholder: "Compose new tweet" %>
+              <% if @opinion.errors[:Text][0]  %>
+                <p class="error">* <%= @opinion.errors[:Text][0] %></p>
+              <% end %>
+              <%= f.submit "Tweet" %>
+            <% end %>
+          </div>
+          <% if @opinions.any? %>
+            <div class="my-related-tweets">
+              <% @opinions.each do |opinion| %>
+                <div class="opinion">
+                  <% if opinion.Author[:Photo].nil? %>
+                    <%= gravatar_for opinion.Author, size: 50 %>
+                  <% else %>
+                    <%= image_tag opinion.Author.Photo.thumb.url %>
+                  <% end %>
+                  <div class="opinion-user">
+                    <h4><%= opinion.Author.Fullname %></h4>
+                    <p><%= opinion.Text %></p>
+                  </div>
+                </div>
+                <div class="retweet-section">
+                  <% if opinion.retweets.any? { |retweet| retweet.UserId == current_user.id }%>
+                    <%= link_to unretweet_path(opinion), method: :delete, class: 'user' do %>
+                      <i class="material-icons blue">autorenew</i>
+                    <% end %>
+                  <% else %>
+                    <%= link_to retweet_path(opinion), class: 'user' do %>
+                      <i class="material-icons grey">autorenew</i>
+                    <% end %>
+                  <% end %>
+                  <% if opinion.retweets.any? %>
+                    <p><%= "#{pluralize(opinion.retweets.count, 'retweet')}" %></p>
+                  <% end %>
+                </div>
+              <% end  %>
+            </div>
+          <% end %>
+        </div>
+      </section>
+      <aside class="side-bar">
+        <div class="followers-hero">
+          <p class="followers-hero-p">WHO TO FOLLOW</p>
+          <i class="material-icons">sync</i>
+        </div>
+        <div class="find-friends">
+          <% @users.each do |user| %>
+            <%= link_to user_path(user), class: 'user' do %>
+              <% unless user[:Photo].nil? %>
+                <%= image_tag user.Photo.thumb.url %>
+              <% else %>
+                <%= gravatar_for user, size: 50 %>
+              <% end %>
+              <h6><%= user.Fullname %></h6>
+            <% end %>
+          <% end %>
+        </div>
+      </aside>
+    </div>
+  </main>
+</div>

@@ -1,0 +1,35 @@
+<%= render 'nav' %>
+<div class="form">
+  <%= form_for @user, url: new_user_path do |f| %>
+    <div class="image">
+      <%= image_tag("twitter.png",  alt: "Twitter Icon", class: "twitter-logo") %>
+    </div>
+    <div class="field">
+      <%= f.text_field :Fullname, placeholder: "Full Name" %>
+      <% if @user.errors[:Fullname][0]  %>
+        <p class="error">* <%= @user.errors[:Fullname][0] %></p>
+      <% end %>
+    </div>
+    <div class="field">
+      <%= f.text_field :Username, placeholder: "Username" %>
+      <% if @user.errors[:Username][0] %>
+        <p class="error">* <%= @user.errors[:Username][0] %></p>
+      <% end %>
+    </div>
+    <div class= "field">
+      <%= f.label :Photo %>
+      <%= f.file_field :Photo %>
+      <% if @user.errors[:Photo][0] %>
+        <p class="error"><%= @user.errors[:Photo][0] %></p>
+      <% end %>
+    </div>
+    <div class="field">
+      <%= f.label :CoverImage %>
+      <%= f.file_field :CoverImage %>
+      <% if @user.errors[:CoverImage][0]%>
+        <p class="error"><%= @user.errors[:CoverImage][0] %></p>
+      <% end %>
+    </div>
+    <%= f.submit "Create User" %>
+  <% end %>
+</div>

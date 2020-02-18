@@ -1,0 +1,46 @@
+.form {
+  width: 400px;
+  margin: 70px auto;
+  padding: 15px;
+
+  label,
+  input[type='text'],
+  input[type='file'],
+  input[type='submit'] {
+    width: 100%;
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  .field,
+  input[type='file'] {
+    margin-bottom: 15px;
+  }
+
+  input[type='text'] {
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    height: 30px;
+  }
+
+  input[type='submit'] {
+    background-color: #2ca7e0;
+    cursor: pointer;
+    padding: 10px;
+    color: #fff;
+    border: none;
+  }
+
+  .image {
+    text-align: center;
+    margin-bottom: 15px;
+
+    .twitter-logo {
+      width: 70px;
+      height: 70px;
+    }
+  }
+}
