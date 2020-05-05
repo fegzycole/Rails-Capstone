@@ -24,8 +24,11 @@
   * [Built With](#built-with)
   * [Prerequisites](#prerequisites)
 * [Credit](#credit)
+* [Usage](#usage)
 * [Screenshots](#screenshots)
-* [Roadmap](#roadmap)
+* [Live Version](#live-version)
+* [Testing](#testing)
+* [Future Improvements](#future-improvements)
 * [License](#license)
 * [Contact](#contact)
 
@@ -71,7 +74,7 @@ This project was built with Ruby on rails version 6
 ![screenshot](screenshots/showpage.png)
 
 
-## Getting Started
+## Usage
 
 - git clone https://github.com/fegzycole/Rails-capstone.git
 
@@ -92,8 +95,24 @@ This project was built with Ruby on rails version 6
 
 - You can view the app [Here](https://secure-shelf-49955.herokuapp.com/)
 
-<!-- ROADMAP -->
-## Roadmap
+## Testing
+
+- git clone https://github.com/fegzycole/Rails-capstone.git
+
+- cd Rails-capstone
+
+- bundle update
+
+- bundle install
+
+- rails db:create
+
+- rails db:migrate (to add tables and columns)
+
+- Run **rspec** in your terminal to run all test suites
+
+<!-- FUTURE IMPROVEMENTS -->
+## Future Improvements
 
 See the [open issues](https://github.com/fegzycole/Rails-capstone/issues) for a list of proposed features (and known issues).
 
