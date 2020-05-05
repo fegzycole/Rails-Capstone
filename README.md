@@ -24,6 +24,7 @@
   * [Built With](#built-with)
   * [Prerequisites](#prerequisites)
 * [Credit](#credit)
+* [Usage](#usage)
 * [Screenshots](#screenshots)
 * [Live Version](#live-version)
 * [Testing](#testing)
@@ -73,7 +74,7 @@ This project was built with Ruby on rails version 6
 ![screenshot](screenshots/showpage.png)
 
 
-## Getting Started
+## Usage
 
 - git clone https://github.com/fegzycole/Rails-capstone.git
 
