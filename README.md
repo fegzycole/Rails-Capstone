@@ -37,7 +37,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-A social media application mimicking some of the functionalities of twitter.com, built as a capstone project in the rails section of the microverse curriculum.
+A social media application mimicking some of the functionalities of twitter.com, built as a capstone project in the rails section of the Microverse curriculum.
 
 
 ### Built With
